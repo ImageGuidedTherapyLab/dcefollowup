@@ -1,0 +1,4 @@
+
+
+
+storescu -aec STORESCP 127.0.0.1 104 send.dcm
