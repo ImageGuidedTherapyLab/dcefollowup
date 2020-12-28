@@ -1,4 +1,8 @@
 
+Usage
+===== 
+     make slicerimport  - build slicer db
 
-
+transfer file to dicom server
+===== 
 storescu -aec STORESCP 127.0.0.1 104 send.dcm

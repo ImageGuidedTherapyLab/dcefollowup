@@ -12,5 +12,5 @@ select im.MRN,im.DCE6StudyUID, im.DCE6UID, im.AUC6 from imaging im where im.DCE6
 -- sqlite3   -init wide.sql 
 -- cat wide.sql  | sqlite3
 .output datalocation/DCE_LONG.csv
-select * from  longformat lf  where  lf.StudyUID != '';
+select * from  longformat lf  where  lf.StudyUID != '' and lf.SeriesUID not like '%complete%';
 .quit
