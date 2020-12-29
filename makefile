@@ -12,4 +12,5 @@ COUNT := $(words $(MRNLIST))
 SEQUENCE = $(shell seq 5)
 slicerimport: $(addprefix Processed/,$(addsuffix /storescu,$(SEQUENCE)))
 Processed/%/storescu:
-	storescu -aec storescp localhost 11112 $(DICOMDIR)/$(word $(shell expr $* + 0 ), $(MRNLIST))/*/$(word $(shell expr $* + 0 ), $(STUDYUIDLIST))/$(word $(shell expr $* + 0 ), $(SERIESUIDLIST))/* 
+	for idfile in $(DICOMDIR)/$(word $(shell expr $* + 0 ), $(MRNLIST))/*/$(word $(shell expr $* + 0 ), $(STUDYUIDLIST))/$(word $(shell expr $* + 0 ), $(SERIESUIDLIST))/* ; do echo $$idfile ; storescu -aec storescp localhost 11112 $$idfile ; done
+

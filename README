@@ -3,11 +3,20 @@ Usage
 ===== 
      make slicerimport  - build slicer db
 
+Deps
+====
+
+ download Slicer-4.11.0-2020-09-08-linux-amd64.tar.gz
+ apt-get install libxcb-xinerama0-dev
+
+
 transfer file to dicom server
 ===== 
 storescu -aec STORESCP 127.0.0.1 104 send.dcm
 
 Export slicer DB as nrrd 
 ==============
-vglrun /opt/apps/slicer/Slicer-4.10.2-linux-amd64/Slicer --no-main-window --python-script ./batch.py
+vglrun /opt/apps/slicer/Slicer-4.11.20200930-linux-amd64/Slicer --no-main-window --python-script ./batch.py
+
+
 

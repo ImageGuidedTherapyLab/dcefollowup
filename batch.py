@@ -56,8 +56,8 @@ with open('datakey.csv', 'w') as csvfile:
     for idstudy,study in enumerate(db.studiesForPatient(patientnumber)):
       for series in db.seriesForStudy(study):
         print series 
-        senode = DICOMUtils.loadSeriesByUID([series])
-        slicer.util.saveNode(senode, 'test/%s.nrrd' % (series)  )
+        senode = DICOMUtils.loadSeriesByUID([series,])
+        slicer.util.saveNode(series, 'test/%s.nrrd' % (series)  )
         serieslist = [myfile for myfile in db.filesForSeries(series)]
         seriesDescription = slicer.dicomDatabase.fileValue(serieslist[0],tags['seriesDescription'])
         patientID = slicer.dicomDatabase.fileValue(serieslist[0],tags['patientID'])
@@ -83,4 +83,4 @@ with open('datakey.csv', 'w') as csvfile:
 #    print( outputdir )
 #    os.system('mkdir -p %s ' % outputdir  )
 #    slicer.util.saveNode(node[1], '%s/%s.nii.gz' % (outputdir,value['seriesanonuid'] )  )
-exit()
+#exit()
